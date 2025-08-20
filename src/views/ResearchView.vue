@@ -7,7 +7,11 @@ const personFind = ref(null)
 const isSubmit = ref(false)
 
 const handleSearch = () => {
-  personFind.value = personsList.find((p) => p.firstname === who.value) || null
+  const searchWho = who.value.toLowerCase()
+  personFind.value =
+    personsList.find((p) => p.firstname.toLowerCase() === searchWho) ||
+    personsList.find((p) => p.lastname.toLowerCase() === searchWho) ||
+    null
   isSubmit.value = true
 }
 </script>
