@@ -12,3 +12,21 @@ import { RouterLink } from 'vue-router'
     </div>
   </header>
 </template>
+
+<style scoped>
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #fc9603;
+  height: var(--header-height);
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+</style>

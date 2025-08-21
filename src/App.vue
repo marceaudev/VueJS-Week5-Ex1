@@ -2,7 +2,6 @@
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
 import { provide, ref } from 'vue'
-import router from './router'
 
 const profile = ref({
   gender: 'female',
@@ -12,12 +11,19 @@ const profile = ref({
   job: 'environmental scientist',
 })
 
-const updateProfile = () => {
-  profile.value.firstname = firstname.value
-  profile.value.lastname = lastname.value
-  profile.value.age = age.value
-  profile.value.job = job.value
-  router.push('/profile')
+const updateProfile = (infos) => {
+  if (infos.firstname) {
+    profile.value.firstname = infos.firstname
+  }
+  if (infos.lastname) {
+    profile.value.lastname = infos.lastname
+  }
+  if (infos.age) {
+    profile.value.age = infos.age
+  }
+  if (infos.job) {
+    profile.value.job = infos.job
+  }
 }
 
 provide('profile', { profile: profile.value, update: updateProfile })

@@ -31,11 +31,64 @@ const handleSearch = () => {
       </p>
       <div v-else-if="personFind">
         <h3>Found it !!!</h3>
-        <p>{{ personFind.firstname }} {{ personFind.lastname }}</p>
-        <p>{{ personFind.age }} ans</p>
-        <p>{{ personFind.job[0].toUpperCase() + personFind.job.slice(1) }}</p>
+        <div class="person">
+          <p>{{ personFind.firstname }} {{ personFind.lastname }}</p>
+          <p>{{ personFind.age }} ans</p>
+          <p>{{ personFind.job[0].toUpperCase() + personFind.job.slice(1) }}</p>
+        </div>
       </div>
       <p v-else>Enter a firstname</p>
     </section>
   </main>
 </template>
+
+<style scoped>
+.container {
+  height: calc(100dvh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input[type='text'] {
+  width: 250px;
+}
+
+section:first-of-type {
+  gap: 25px;
+}
+
+section:last-of-type div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+section:last-of-type div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+</style>
